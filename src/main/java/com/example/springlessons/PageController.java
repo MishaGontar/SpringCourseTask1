@@ -10,14 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PageController {
     @GetMapping(value = "/new_car")
-    public ModelAndView NewCar(){
-        return new ModelAndView("addCar","command",new Car());
+    public ModelAndView NewCar() {
+        return new ModelAndView("addCar", "command", new Car());
     }
+
     @PostMapping(value = "/add_car")
-    public String addCar(@ModelAttribute("SpringWeb")Car car , ModelMap model){
-        model.addAttribute("brand",car.getBrand());
-        model.addAttribute("model",car.getModel());
-        model.addAttribute("cost",car.getCost());
+    public String addCar(@ModelAttribute("SpringWeb") Car car, ModelMap model) {
+        model.addAttribute("brand", car.getBrand());
+        model.addAttribute("model", car.getModel());
+        model.addAttribute("cost", car.getCost());
         return "aboutCar";
     }
 }
